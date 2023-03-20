@@ -1,0 +1,21 @@
+{% extends "layout1.html" %}
+
+{% block content1 %}
+<br>
+<h1 class="text-center">Lista de carros deportivos</h1>
+<br><br>
+<div class="row">
+    {% for producto in productos %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img class="card-img-top img-fluid rounded" src="data:image/jpeg;base64,{{ producto.data }}" alt="Imagen de producto">
+            <div class="card-body text-center">
+                <h2 class="card-title">Marca: {{ producto.nombre }}</h2>
+                <h2 class="card-title">Precio: {{ producto.precio }}</h2>
+                <h2 class="card-title">Detalles: {{ producto.detalle }}</h2>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

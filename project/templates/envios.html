@@ -1,0 +1,17 @@
+{% extends "layout1.html"%}
+{%block content1%}
+<br>
+<h1 class="title">
+    Escribenos {{name}}
+</h1>
+<br><br>
+<p>Déjanos tus comentarios sobre la aplicación:</p>
+<form>
+    <label for="comentarios">Mensaje:</label><br>
+    <textarea id="comentarios" name="comentarios" style="height: 15rem;width: 33rem;"></textarea><br><br>
+    <button class="btn btn-outline-info" type="submit">Enviar</button>
+</form>
+<br><br>
+<p>En caso omiso, ponte en contacto con nosotros enviando un correo electrónico a la dirección autoChar@gmail.com</p>
+<p>Si lo prefieres, también puedes contactarnos enviándonos un mensaje a través de WhatsApp al número 4778340668</p>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layout1.html"%}
+{%block content1%}
+{%from "_macros.html" import render_field%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <a href="/agregar" class="btn btn-success">
+                <i class="icon-pencil icon-white"></i>Agregar
+            </a>
+        </div>
+        <div class="col-md-12">
+            <h3 class="text-center">Coleccion de carros</h3>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" style="margin: 0 auto; vertical-align: middle;">
+                    <thead>
+                        <tr class="tr-head">
+                            <th class="text-center">Marca</th>
+                            <th class="text-center">Precio</th>
+                            <th class="text-center">Imagen</th>
+                            <th class="text-center">Detalles</th>
+                            <th class="text-center">Eliminar</th>
+                            <th class="text-center">Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pro in productos: %}
+                        <tr>
+                            <td class="text-center mx-auto">{{pro.nombre}}</td>
+                            <td class="text-center mx-auto">{{pro.precio}}</td>
+                            <td  class="text-center mx-auto">
+                                {% if pro.data %}
+                                    <img height="400erm" width="300erm" src="data:image/jpeg;base64,{{pro.data}}"/>
+                                {% else %}
+                                    <p>No hay imagen seleccionada</p>
+                                {% endif %}
+                            </td>
+                            <td class="text-center mx-auto">{{pro.detalle}}</td>
+                            <td  class="text-center mx-auto"><a href="eliminar?id={{pro.id}}" class="btn btn-danger">
+                                    <i class="icon-remove icon-white"></i>Eliminar
+                                </a>
+                            </td>
+                            <td  class="text-center mx-auto"><a href="modificar?id={{pro.id}}" class="btn btn-warning">
+                                    <i class="icon-pencil icon-white"></i>Modificar
+                                </a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+<style>
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table-hover tbody tr:hover td {
+        color: #343a40;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+</style>
